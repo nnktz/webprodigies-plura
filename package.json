@@ -10,6 +10,9 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.29.7",
+    "@clerk/themes": "^1.7.9",
+    "@uploadthing/react": "^6.2.4",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "lucide-react": "^0.338.0",
@@ -17,7 +20,8 @@
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^2.2.1",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "uploadthing": "^6.4.1"
   },
   "devDependencies": {
     "@types/node": "^20",
