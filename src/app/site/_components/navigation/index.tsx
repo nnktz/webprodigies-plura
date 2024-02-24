@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { UserButton } from '@clerk/nextjs'
+import { SignIn, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 import type { UserResource } from '@clerk/types'
 
 import { ModeToggle } from '@/components/global/mode-toggle'
@@ -28,16 +28,18 @@ export const Navigation = ({ user }: Props) => {
       </nav>
 
       <aside className="flex items-center gap-2">
-        {user !== null ? (
-          <UserButton />
-        ) : (
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
+
+        <SignedOut>
           <Link
             href={'/agency'}
             className="rounded-md bg-primary p-2 px-4 text-white hover:bg-primary/80"
           >
             Login
           </Link>
-        )}
+        </SignedOut>
         <ModeToggle />
       </aside>
     </div>

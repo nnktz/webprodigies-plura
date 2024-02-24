@@ -1,6 +1,7 @@
 'use client'
 
-import { useUser } from '@clerk/nextjs'
+import { ClerkProvider } from '@clerk/nextjs'
+import { dark } from '@clerk/themes'
 
 import { Navigation } from './_components/navigation'
 
@@ -9,13 +10,13 @@ const SiteLayout = ({
 }: Readonly<{
   children: React.ReactNode
 }>) => {
-  const { user } = useUser()
-
   return (
-    <main className="h-full">
-      <Navigation user={user} />
-      {children}
-    </main>
+    <ClerkProvider appearance={{ baseTheme: dark }}>
+      <main className="h-full">
+        <Navigation />
+        {children}
+      </main>
+    </ClerkProvider>
   )
 }
 
