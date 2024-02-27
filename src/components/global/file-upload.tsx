@@ -1,7 +1,9 @@
-import { File, X } from 'lucide-react'
 import Image from 'next/image'
-import { Button } from '../ui/button'
+import { File, X } from 'lucide-react'
+
 import { UploadDropzone } from '@/lib/uploadthing'
+
+import { Button } from '../ui/button'
 
 type Props = {
   apiEndpoint: 'agencyLogo' | 'avatar' | 'subAccountLogo' | 'media'
@@ -14,10 +16,10 @@ export const FileUpload = ({ apiEndpoint, onChange, value }: Props) => {
 
   if (value) {
     return (
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center gap-y-2">
         {type !== 'pdf' ? (
           <div className="relative h-40 w-40">
-            <Image src={value} alt="uploaded image" className="object-contain" />
+            <Image fill src={value} alt="uploaded image" className="object-contain" />
           </div>
         ) : (
           <div className="relative float-start mt-2 items-center rounded-md bg-background/10 p-2">
@@ -34,7 +36,7 @@ export const FileUpload = ({ apiEndpoint, onChange, value }: Props) => {
         )}
 
         <Button variant={'ghost'} type="button" onClick={() => onChange('')}>
-          <X className="h-4 w-4" />
+          <X className="mr-2 h-4 w-4" />
           Remove Logo
         </Button>
       </div>

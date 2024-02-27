@@ -87,7 +87,6 @@ model Permission {
 model Agency {
   id                  String    @id @default(uuid())
   connectionAccountId String?   @default("")
-  customerId          String    @default("")
   name                String
   agencyLogo          String    @db.Text
   companyEmail        String    @db.Text
