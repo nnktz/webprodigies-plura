@@ -1,17 +1,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { SignIn, SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
-import type { UserResource } from '@clerk/types'
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs'
 
 import { ModeToggle } from '@/components/global/mode-toggle'
 
-type Props = {
-  user?: UserResource | null
-}
-
-export const Navigation = ({ user }: Props) => {
+export const Navigation = () => {
   return (
-    <div className="fixed left-0 right-0 top-0 z-10 flex items-center justify-between p-4">
+    <div className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between border-b bg-white p-4 dark:bg-black">
       <aside className="flex items-center gap-2">
         <Image src={'/assets/plura-logo.svg'} alt="logo" height={40} width={40} />
 
