@@ -4,7 +4,7 @@ import { Button } from '../ui/button'
 import { UploadDropzone } from '@/lib/uploadthing'
 
 type Props = {
-  apiEndpoint: 'agencyLogo' | 'avatar' | 'subAccountLogo'
+  apiEndpoint: 'agencyLogo' | 'avatar' | 'subAccountLogo' | 'media'
   onChange: (url?: string) => void
   value?: string
 }
@@ -44,7 +44,7 @@ export const FileUpload = ({ apiEndpoint, onChange, value }: Props) => {
   return (
     <div className="w-full bg-muted/30">
       <UploadDropzone
-        endpoint={'imageUploader'}
+        endpoint={apiEndpoint}
         onClientUploadComplete={(res) => {
           onChange(res?.[0].url)
         }}
