@@ -56,6 +56,15 @@ export const Sidebar = async ({ id, type }: Props) => {
         subAccounts={subAccounts}
         user={user}
       />
+
+      <MenuOptions
+        details={details}
+        id={id}
+        sidebarLogo={sidebarLogo}
+        sidebarOpt={sidebarOpt}
+        subAccounts={subAccounts}
+        user={user}
+      />
     </>
   )
 }

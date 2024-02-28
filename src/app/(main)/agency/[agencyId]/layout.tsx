@@ -48,7 +48,9 @@ const AgencyIdLayout = async ({ params, children: { children } }: Props) => {
     <div className="h-screen overflow-hidden">
       <Sidebar id={params.agencyId} type="agency" />
 
-      <div className="md:pl-[300px]">{children}</div>
+      <div className="md:pl-[300px]">
+        <div className="relative">{children}</div>
+      </div>
     </div>
   )
 }

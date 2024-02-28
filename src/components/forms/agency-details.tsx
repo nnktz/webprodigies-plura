@@ -14,7 +14,7 @@ import { deleteAgency, updateAgencyDetails, upsertAgency } from '@/actions/agenc
 import { saveActivityLogsNotification } from '@/actions/notification'
 import { initUser } from '@/actions/user'
 
-import { toast, useToast } from '../ui/use-toast'
+import { useToast } from '../ui/use-toast'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -47,7 +47,7 @@ type Props = {
 }
 
 export const AgencyDetails = ({ data }: Props) => {
-  const {} = useToast()
+  const { toast } = useToast()
   const router = useRouter()
 
   const [deletingAgency, setDeletingAgency] = useState(false)
@@ -79,7 +79,7 @@ export const AgencyDetails = ({ data }: Props) => {
 
   const onSubmit = async (values: z.infer<typeof formAgencySchema>) => {
     try {
-      let newUserData, customerId
+      let newUserData
       if (!data?.id) {
         const bodyData = {
           email: values.companyEmail,
@@ -214,7 +214,7 @@ export const AgencyDetails = ({ data }: Props) => {
                     <FormItem className="flex-1">
                       <FormLabel>Agency Name</FormLabel>
                       <FormControl>
-                        <Input placeholder="Your agency name" {...field} />
+                        <Input autoFocus placeholder="Your agency name" {...field} />
                       </FormControl>
 
                       <FormMessage />
@@ -230,7 +230,7 @@ export const AgencyDetails = ({ data }: Props) => {
                     <FormItem className="flex-1">
                       <FormLabel>Agency Email</FormLabel>
                       <FormControl>
-                        <Input readOnly placeholder="Email" {...field} />
+                        <Input type="email" readOnly placeholder="Email" {...field} />
                       </FormControl>
 
                       <FormMessage />
